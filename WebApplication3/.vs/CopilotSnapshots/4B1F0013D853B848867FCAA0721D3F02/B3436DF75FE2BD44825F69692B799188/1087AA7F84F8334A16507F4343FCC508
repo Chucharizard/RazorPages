@@ -1,0 +1,60 @@
+﻿using WebApplication3.Models;
+using System.Text.Json;
+
+namespace WebApplication3.Services
+{
+    public class TareaService
+    {
+        private readonly IWebHostEnvironment _environment;
+        private readonly string _filePath;
+
+        public TareaService(IWebHostEnvironment environment)
+        {
+            _environment = environment;
+            _filePath = Path.Combine(_environment.WebRootPath, "tareas.json");
+        }
+
+        public async Task<List<Tarea>> GetAllTareasAsync()
+        {
+            try
+            {
+                if (!File.Exists(_filePath))
+                    return new List<Tarea>();
+
+                var json = await File.ReadAllTextAsync(_filePath);
+                var tareas = JsonSerializer.Deserialize<List<Tarea>>(json) ?? new List<Tarea>();
+                
+                // Asignar IDs si no los tienen
+                for (int i = 0; i < tareas.Count; i++)
+                {
+                    tareas[i].Id = i + 1;
+                }
+
+                return tareas;
+            }
+            catch
+            {
+                return new List<Tarea>();
+            }
+        }
+
+        public async Task<(List<Tarea> Items, int TotalCount)> GetTareasPagedAsync(int page, int pageSize)
+        {
+            var allTareas = await GetAllTareasAsync();
+            var totalCount = allTareas.Count;
+            
+            var items = allTareas
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            return (items, totalCount);
+        }
+
+        public async Task<List<Tarea>> GetTareasByEstadoAsync(string estado)
+        {
+            var allTareas = await GetAllTareasAsync();
+            return allTareas.Where(t => t.estado.Equals(estado, StringComparison.OrdinalIgnoreCase)).ToList();
+        }
+    }
+}

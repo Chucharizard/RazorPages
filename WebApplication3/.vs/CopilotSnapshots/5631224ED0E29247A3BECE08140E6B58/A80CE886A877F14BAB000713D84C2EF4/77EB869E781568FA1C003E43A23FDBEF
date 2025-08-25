@@ -1,0 +1,58 @@
+﻿[
+  {
+    "Id": 1,
+    "nombreTarea": "Comprar materiales",
+    "fechaVencimiento": "20/08/2025",
+    "estado": "Pendiente",
+    "descripcion": "Materiales para el proyecto de construcción"
+  },
+  {
+    "Id": 2,
+    "nombreTarea": "Enviar informe",
+    "fechaVencimiento": "18/08/2025",
+    "estado": "Finalizado",
+    "descripcion": "Informe mensual de actividades"
+  },
+  {
+    "Id": 3,
+    "nombreTarea": "Reunión con cliente",
+    "fechaVencimiento": "25/08/2025",
+    "estado": "En curso",
+    "descripcion": "Presentación del proyecto"
+  },
+  {
+    "Id": 4,
+    "nombreTarea": "Revisar documentación",
+    "fechaVencimiento": "30/08/2025",
+    "estado": "Pendiente",
+    "descripcion": "Revisión de especificaciones técnicas"
+  },
+  {
+    "Id": 5,
+    "nombreTarea": "Pruebas de sistema",
+    "fechaVencimiento": "15/08/2025",
+    "estado": "Cancelado",
+    "descripcion": "Pruebas de funcionalidad del sistema"
+  },
+  {
+    "Id": 6,
+    "nombreTarea": "Capacitación equipo",
+    "fechaVencimiento": "22/08/2025",
+    "estado": "Pendiente",
+    "descripcion": "Capacitación del equipo de trabajo"
+  },
+  {
+    "Id": 7,
+    "nombreTarea": "Entrega final",
+    "fechaVencimiento": "28/08/2025",
+    "estado": "En curso",
+    "descripcion": "Entrega del proyecto completo"
+  },
+  {
+    "Id": 8,
+    "nombreTarea": "Facturación",
+    "fechaVencimiento": "31/08/2025",
+    "estado": "Pendiente",
+    "descripcion": "Proceso de facturación del proyecto"
+  }
+]

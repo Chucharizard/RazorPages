@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebApplication3</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebApplication3.styles.css" asp-append-version="true" />
+    <!-- Font Awesome para los icooonosss gaa -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+    <div class="header">
+        <span class="logo">
+            <i class="fas fa-tasks"></i>
+            BLOCK DE TAREAS
+        </span>
+    </div>
+    <div class="contenedor">
+        <nav class="contenedor1">
+            <ul>
+                <li>
+                    <a class="link" asp-page="/Index">
+                        <i class="fas fa-home"></i>
+                        <span>Inicio</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="link" asp-page="/Index">
+                        <i class="fas fa-list"></i>
+                        <span>Lista de tareas</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="link" asp-page="/Privacy">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Tareas finalizadas</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="link" asp-page="/Privacy">
+                        <i class="fas fa-times-circle"></i>
+                        <span>Tareas canceladas</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="main-content">
+            
+
+            <main class="content" role="main">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html></html>

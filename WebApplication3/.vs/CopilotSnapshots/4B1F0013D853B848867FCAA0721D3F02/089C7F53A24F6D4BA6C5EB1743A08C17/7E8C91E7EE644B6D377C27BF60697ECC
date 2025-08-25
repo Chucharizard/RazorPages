@@ -1,0 +1,45 @@
+﻿using WebApplication3.Models;
+using System.Text.Json;
+
+namespace WebApplication3.Services
+{
+    public class TareaService
+    {
+        private readonly IWebHostEnvironment _environment;
+
+        public TareaService(IWebHostEnvironment environment)
+        {
+            _environment = environment;
+        }
+
+        public List<Tarea> GetAllTareas()
+        {
+            try
+            {
+                string filePath = Path.Combine(_environment.WebRootPath, "tareas.json");
+                if (!File.Exists(filePath))
+                    return new List<Tarea>();
+
+                string json = File.ReadAllText(filePath);
+                var tareas = JsonSerializer.Deserialize<List<Tarea>>(json);
+                return tareas ?? new List<Tarea>();
+            }
+            catch
+            {
+                return new List<Tarea>();
+            }
+        }
+
+        public List<Tarea> GetTareasPaginated(int page, int pageSize, out int totalPages)
+        {
+            var allTareas = GetAllTareas();
+            int totalTareas = allTareas.Count;
+            totalPages = (int)Math.Ceiling((double)totalTareas / pageSize);
+
+            return allTareas
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+        }
+    }
+}

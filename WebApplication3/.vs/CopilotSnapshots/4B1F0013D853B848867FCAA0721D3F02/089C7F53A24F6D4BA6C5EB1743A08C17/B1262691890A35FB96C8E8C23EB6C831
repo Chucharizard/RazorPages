@@ -1,0 +1,130 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Lista de Tareas";
+}
+
+<div class="container">
+    <h2><i class="fas fa-clipboard-list"></i> Lista de Tareas</h2>
+    
+    <!-- Control de tareas por página -->
+    <div class="pagination-controls">
+        <label>Mostrar:</label>
+        <select onchange="cambiarTareasPorPagina(this.value)">
+            @if (Model.TareasPorPagina == 5)
+            {
+                <option value="5" selected>5 tareas</option>
+            }
+            else
+            {
+                <option value="5">5 tareas</option>
+            }
+            
+            @if (Model.TareasPorPagina == 10)
+            {
+                <option value="10" selected>10 tareas</option>
+            }
+            else
+            {
+                <option value="10">10 tareas</option>
+            }
+            
+            @if (Model.TareasPorPagina == 15)
+            {
+                <option value="15" selected>15 tareas</option>
+            }
+            else
+            {
+                <option value="15">15 tareas</option>
+            }
+        </select>
+        <span>por página</span>
+    </div>
+
+    <!-- Tabla de tareas -->
+    <table class="tabla-tareas">
+        <thead>
+            <tr>
+                <th>Tarea</th>
+                <th>Fecha Vencimiento</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Tareas.Any())
+            {
+                @foreach (var tarea in Model.Tareas)
+                {
+                    <tr>
+                        <td>@tarea.nombreTarea</td>
+                        <td>@tarea.fechaVencimiento</td>
+                        <td>
+                            @if (tarea.estado == "Pendiente")
+                            {
+                                <span class="estado pendiente">🕐 Pendiente</span>
+                            }
+                            else if (tarea.estado == "Finalizado")
+                            {
+                                <span class="estado finalizado">✅ Finalizado</span>
+                            }
+                            else if (tarea.estado == "En curso")
+                            {
+                                <span class="estado en-curso">⏳ En curso</span>
+                            }
+                        </td>
+                        <td>
+                            <button class="btn-accion completar">✓</button>
+                            <button class="btn-accion cancelar">✗</button>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4" class="no-data">No hay tareas para mostrar</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <!-- Paginación -->
+    @if (Model.TotalPaginas > 1)
+    {
+        <div class="paginacion">
+            @if (Model.PaginaActual > 1)
+            {
+                <a href="?pagina=@(Model.PaginaActual - 1)&itemsPorPagina=@Model.TareasPorPagina" class="btn-pagina">← Anterior</a>
+            }
+
+            @for (int i = 1; i <= Model.TotalPaginas; i++)
+            {
+                @if (i == Model.PaginaActual)
+                {
+                    <span class="btn-pagina activa">@i</span>
+                }
+                else
+                {
+                    <a href="?pagina=@i&itemsPorPagina=@Model.TareasPorPagina" class="btn-pagina">@i</a>
+                }
+            }
+
+            @if (Model.PaginaActual < Model.TotalPaginas)
+            {
+                <a href="?pagina=@(Model.PaginaActual + 1)&itemsPorPagina=@Model.TareasPorPagina" class="btn-pagina">Siguiente →</a>
+            }
+        </div>
+    }
+
+    <!-- Información de paginación -->
+    <div class="info-paginacion">
+        <p>Página @Model.PaginaActual de @Model.TotalPaginas</p>
+    </div>
+</div>
+
+<script>
+function cambiarTareasPorPagina(valor) {
+    window.location.href = '?pagina=1&itemsPorPagina=' + valor;
+}
+</script>

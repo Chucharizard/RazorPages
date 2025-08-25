@@ -28,6 +28,11 @@
 *.so.*
 *.dylib
 
+.vs/
+*.db
+CopilotSnapshots/
+
+
 # Executables
 *.exe
 *.out
@@ -53,3 +58,4 @@ dkms.conf
 
 # debug information files
 *.dwo
+

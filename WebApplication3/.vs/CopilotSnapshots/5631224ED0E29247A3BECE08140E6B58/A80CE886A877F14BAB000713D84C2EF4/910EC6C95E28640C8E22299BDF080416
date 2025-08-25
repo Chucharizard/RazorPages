@@ -1,0 +1,11 @@
+﻿namespace WARazor.Models
+{
+    public class Tarea
+    {
+        public int Id { get; set; }
+        public string nombreTarea { get; set; } = string.Empty;
+        public string fechaVencimiento { get; set; } = string.Empty;
+        public string estado { get; set; } = string.Empty;
+        public string descripcion { get; set; } = string.Empty;
+    }
+}

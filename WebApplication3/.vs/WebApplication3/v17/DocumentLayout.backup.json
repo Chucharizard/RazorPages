@@ -1,0 +1,214 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\USUARIO\\Downloads\\RazorPages-main (3)\\RazorPages-main\\WebApplication3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9382437E-6080-4441-A13F-8DC4C84A3E8A}|WebApplication3.csproj|c:\\users\\usuario\\downloads\\razorpages-main (3)\\razorpages-main\\webapplication3\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9382437E-6080-4441-A13F-8DC4C84A3E8A}|WebApplication3.csproj|solutionrelative:pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9382437E-6080-4441-A13F-8DC4C84A3E8A}|WebApplication3.csproj|c:\\users\\usuario\\downloads\\razorpages-main (3)\\razorpages-main\\webapplication3\\pages\\index.cshtml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{9382437E-6080-4441-A13F-8DC4C84A3E8A}|WebApplication3.csproj|solutionrelative:pages\\index.cshtml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9382437E-6080-4441-A13F-8DC4C84A3E8A}|WebApplication3.csproj|c:\\users\\usuario\\downloads\\razorpages-main (3)\\razorpages-main\\webapplication3\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9382437E-6080-4441-A13F-8DC4C84A3E8A}|WebApplication3.csproj|solutionrelative:pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9382437E-6080-4441-A13F-8DC4C84A3E8A}|WebApplication3.csproj|c:\\users\\usuario\\downloads\\razorpages-main (3)\\razorpages-main\\webapplication3\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9382437E-6080-4441-A13F-8DC4C84A3E8A}|WebApplication3.csproj|solutionrelative:pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9382437E-6080-4441-A13F-8DC4C84A3E8A}|WebApplication3.csproj|c:\\users\\usuario\\downloads\\razorpages-main (3)\\razorpages-main\\webapplication3\\pages\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{9382437E-6080-4441-A13F-8DC4C84A3E8A}|WebApplication3.csproj|solutionrelative:pages\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9382437E-6080-4441-A13F-8DC4C84A3E8A}|WebApplication3.csproj|c:\\users\\usuario\\downloads\\razorpages-main (3)\\razorpages-main\\webapplication3\\pages\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9382437E-6080-4441-A13F-8DC4C84A3E8A}|WebApplication3.csproj|solutionrelative:pages\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9382437E-6080-4441-A13F-8DC4C84A3E8A}|WebApplication3.csproj|c:\\users\\usuario\\downloads\\razorpages-main (3)\\razorpages-main\\webapplication3\\pages\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9382437E-6080-4441-A13F-8DC4C84A3E8A}|WebApplication3.csproj|solutionrelative:pages\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9382437E-6080-4441-A13F-8DC4C84A3E8A}|WebApplication3.csproj|c:\\users\\usuario\\downloads\\razorpages-main (3)\\razorpages-main\\webapplication3\\pages\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9382437E-6080-4441-A13F-8DC4C84A3E8A}|WebApplication3.csproj|solutionrelative:pages\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9382437E-6080-4441-A13F-8DC4C84A3E8A}|WebApplication3.csproj|c:\\users\\usuario\\downloads\\razorpages-main (3)\\razorpages-main\\webapplication3\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{9382437E-6080-4441-A13F-8DC4C84A3E8A}|WebApplication3.csproj|solutionrelative:wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9382437E-6080-4441-A13F-8DC4C84A3E8A}|WebApplication3.csproj|c:\\users\\usuario\\downloads\\razorpages-main (3)\\razorpages-main\\webapplication3\\wwwroot\\tareas.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9382437E-6080-4441-A13F-8DC4C84A3E8A}|WebApplication3.csproj|solutionrelative:wwwroot\\tareas.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9382437E-6080-4441-A13F-8DC4C84A3E8A}|WebApplication3.csproj|c:\\users\\usuario\\downloads\\razorpages-main (3)\\razorpages-main\\webapplication3\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{9382437E-6080-4441-A13F-8DC4C84A3E8A}|WebApplication3.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9382437E-6080-4441-A13F-8DC4C84A3E8A}|WebApplication3.csproj|c:\\users\\usuario\\downloads\\razorpages-main (3)\\razorpages-main\\webapplication3\\models\\tarea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9382437E-6080-4441-A13F-8DC4C84A3E8A}|WebApplication3.csproj|solutionrelative:models\\tarea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\RazorPages-main (3)\\RazorPages-main\\WebApplication3\\Pages\\Index.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Index.cshtml",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\RazorPages-main (3)\\RazorPages-main\\WebApplication3\\Pages\\Index.cshtml",
+              "RelativeToolTip": "Pages\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-25T03:48:34.911Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_Layout.cshtml.css",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\RazorPages-main (3)\\RazorPages-main\\WebApplication3\\Pages\\Shared\\_Layout.cshtml.css",
+              "RelativeDocumentMoniker": "Pages\\Shared\\_Layout.cshtml.css",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\RazorPages-main (3)\\RazorPages-main\\WebApplication3\\Pages\\Shared\\_Layout.cshtml.css",
+              "RelativeToolTip": "Pages\\Shared\\_Layout.cshtml.css",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-08-25T03:27:46.132Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\RazorPages-main (3)\\RazorPages-main\\WebApplication3\\Pages\\Error.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Error.cshtml",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\RazorPages-main (3)\\RazorPages-main\\WebApplication3\\Pages\\Error.cshtml",
+              "RelativeToolTip": "Pages\\Error.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-25T03:25:36.281Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\RazorPages-main (3)\\RazorPages-main\\WebApplication3\\Pages\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "Pages\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\RazorPages-main (3)\\RazorPages-main\\WebApplication3\\Pages\\_ViewStart.cshtml",
+              "RelativeToolTip": "Pages\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-25T03:25:35.762Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\RazorPages-main (3)\\RazorPages-main\\WebApplication3\\Pages\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Pages\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\RazorPages-main (3)\\RazorPages-main\\WebApplication3\\Pages\\_ViewImports.cshtml",
+              "RelativeToolTip": "Pages\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-25T03:25:35.13Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "site.js",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\RazorPages-main (3)\\RazorPages-main\\WebApplication3\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\site.js",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\RazorPages-main (3)\\RazorPages-main\\WebApplication3\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "wwwroot\\js\\site.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-08-25T03:25:29.395Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\RazorPages-main (3)\\RazorPages-main\\WebApplication3\\Pages\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Index.cshtml.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\RazorPages-main (3)\\RazorPages-main\\WebApplication3\\Pages\\Index.cshtml.cs",
+              "RelativeToolTip": "Pages\\Index.cshtml.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAABQAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T02:33:14.045Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "tareas.json",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\RazorPages-main (3)\\RazorPages-main\\WebApplication3\\wwwroot\\tareas.json",
+              "RelativeDocumentMoniker": "wwwroot\\tareas.json",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\RazorPages-main (3)\\RazorPages-main\\WebApplication3\\wwwroot\\tareas.json",
+              "RelativeToolTip": "wwwroot\\tareas.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-08-20T00:45:27.916Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Tarea.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\RazorPages-main (3)\\RazorPages-main\\WebApplication3\\Models\\Tarea.cs",
+              "RelativeDocumentMoniker": "Models\\Tarea.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\RazorPages-main (3)\\RazorPages-main\\WebApplication3\\Models\\Tarea.cs",
+              "RelativeToolTip": "Models\\Tarea.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-20T00:45:17.226Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\RazorPages-main (3)\\RazorPages-main\\WebApplication3\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\RazorPages-main (3)\\RazorPages-main\\WebApplication3\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "wwwroot\\css\\site.css",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAAAPcBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-08-19T23:40:40.888Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\RazorPages-main (3)\\RazorPages-main\\WebApplication3\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\RazorPages-main (3)\\RazorPages-main\\WebApplication3\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Pages\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-19T23:37:42.518Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\RazorPages-main (3)\\RazorPages-main\\WebApplication3\\Pages\\Index.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Index.cshtml",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\RazorPages-main (3)\\RazorPages-main\\WebApplication3\\Pages\\Index.cshtml",
+              "RelativeToolTip": "Pages\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAANgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-19T23:37:38.399Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

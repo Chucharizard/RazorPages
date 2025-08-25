@@ -1,0 +1,250 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using WebApplication3.Models;
+using System.Text.Json;
+
+namespace WebApplication3.Pages
+{
+    public class IndexModel : PageModel
+    {
+        // Propiedades básicas
+        public List<Tarea> Tareas { get; set; } = new List<Tarea>();
+        public int PaginaActual { get; set; } = 1;
+        public int TotalPaginas { get; set; }
+        public int TamanoPagina { get; set; } = 5;
+        public string EstadoFiltro { get; set; } = "";
+
+        // Propiedades para el formulario de nueva tarea
+        [BindProperty]
+        public string NuevoNombre { get; set; } = "";
+        
+        [BindProperty]
+        public string NuevaFecha { get; set; } = "";
+        
+        public string Mensaje { get; set; } = "";
+        public bool MostrarFormulario { get; set; } = false;
+
+        public void OnGet(int pagina = 1, string estado = "", int tamanoPagina = 5, bool mostrarForm = false)
+        {
+            MostrarFormulario = mostrarForm;
+            CargarTareas(pagina, estado, tamanoPagina);
+        }
+
+        public IActionResult OnPost(int pagina = 1, string estado = "", int tamanoPagina = 5)
+        {
+            // Validar datos del formulario
+            if (string.IsNullOrWhiteSpace(NuevoNombre))
+            {
+                Mensaje = "El nombre de la tarea es obligatorio";
+                MostrarFormulario = true;
+                CargarTareas(pagina, estado, tamanoPagina);
+                return Page();
+            }
+
+            if (string.IsNullOrWhiteSpace(NuevaFecha))
+            {
+                Mensaje = "La fecha de vencimiento es obligatoria";
+                MostrarFormulario = true;
+                CargarTareas(pagina, estado, tamanoPagina);
+                return Page();
+            }
+
+            // Crear nueva tarea con ID único
+            var nuevaTarea = new Tarea
+            {
+                Id = GenerarNuevoId(),
+                nombreTarea = NuevoNombre.Trim(),
+                fechaVencimiento = NuevaFecha,
+                estado = "Pendiente" // Las nuevas tareas siempre inician como pendientes
+            };
+
+            // Guardar en el JSON
+            if (GuardarNuevaTarea(nuevaTarea))
+            {
+                Mensaje = "Tarea creada exitosamente";
+                // Limpiar formulario
+                NuevoNombre = "";
+                NuevaFecha = "";
+                MostrarFormulario = false;
+            }
+            else
+            {
+                Mensaje = "Error al guardar la tarea";
+                MostrarFormulario = true;
+            }
+
+            CargarTareas(pagina, estado, tamanoPagina);
+            return Page();
+        }
+
+        // Nuevo método para completar tarea
+        public IActionResult OnPostCompletar(int id, int pagina = 1, string estado = "", int tamanoPagina = 5)
+        {
+            if (CambiarEstadoTarea(id, "Finalizado"))
+            {
+                Mensaje = "Tarea completada exitosamente";
+            }
+            else
+            {
+                Mensaje = "Error al completar la tarea";
+            }
+
+            CargarTareas(pagina, estado, tamanoPagina);
+            return Page();
+        }
+
+        // Nuevo método para cancelar tarea
+        public IActionResult OnPostCancelar(int id, int pagina = 1, string estado = "", int tamanoPagina = 5)
+        {
+            if (CambiarEstadoTarea(id, "Cancelado"))
+            {
+                Mensaje = "Tarea cancelada exitosamente";
+            }
+            else
+            {
+                Mensaje = "Error al cancelar la tarea";
+            }
+
+            CargarTareas(pagina, estado, tamanoPagina);
+            return Page();
+        }
+
+        private void CargarTareas(int pagina, string estado, int tamanoPagina)
+        {
+            // Leer el archivo JSON
+            string jsonFilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "tareas.json");
+            var jsonContent = System.IO.File.ReadAllText(jsonFilePath);
+            var todasLasTareas = JsonSerializer.Deserialize<List<Tarea>>(jsonContent) ?? new List<Tarea>();
+
+            // Asignar IDs si no los tienen (para compatibilidad con datos existentes)
+            for (int i = 0; i < todasLasTareas.Count; i++)
+            {
+                if (todasLasTareas[i].Id == 0)
+                {
+                    todasLasTareas[i].Id = i + 1;
+                }
+            }
+
+            // Filtrar por estado
+            EstadoFiltro = estado;
+            if (!string.IsNullOrWhiteSpace(estado))
+            {
+                todasLasTareas = todasLasTareas.Where(t => t.estado == estado).ToList();
+            }
+            else
+            {
+                // Por defecto mostrar solo Pendientes y En curso
+                todasLasTareas = todasLasTareas
+                    .Where(t => t.estado == "Pendiente" || t.estado == "En curso")
+                    .ToList();
+            }
+
+            // Validaciones básicas
+            TamanoPagina = tamanoPagina < 1 ? 5 : tamanoPagina;
+            PaginaActual = pagina < 1 ? 1 : pagina;
+
+            // Calcular paginación
+            TotalPaginas = (int)Math.Ceiling(todasLasTareas.Count / (double)TamanoPagina);
+            
+            // Si excede páginas, ir a la última página
+            if (PaginaActual > TotalPaginas && TotalPaginas > 0)
+            {
+                PaginaActual = TotalPaginas;
+            }
+
+            // Obtener tareas de la página actual
+            Tareas = todasLasTareas
+                .Skip((PaginaActual - 1) * TamanoPagina)
+                .Take(TamanoPagina)
+                .ToList();
+        }
+
+        private bool GuardarNuevaTarea(Tarea nuevaTarea)
+        {
+            try
+            {
+                string jsonFilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "tareas.json");
+                
+                // Leer todas las tareas existentes
+                var jsonContent = System.IO.File.ReadAllText(jsonFilePath);
+                var tareas = JsonSerializer.Deserialize<List<Tarea>>(jsonContent) ?? new List<Tarea>();
+                
+                // Agregar la nueva tarea
+                tareas.Add(nuevaTarea);
+                
+                // Guardar de vuelta al archivo
+                var nuevoJson = JsonSerializer.Serialize(tareas, new JsonSerializerOptions 
+                { 
+                    WriteIndented = true,
+                    Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+                });
+                
+                System.IO.File.WriteAllText(jsonFilePath, nuevoJson);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private bool CambiarEstadoTarea(int id, string nuevoEstado)
+        {
+            try
+            {
+                string jsonFilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "tareas.json");
+                
+                // Leer todas las tareas
+                var jsonContent = System.IO.File.ReadAllText(jsonFilePath);
+                var tareas = JsonSerializer.Deserialize<List<Tarea>>(jsonContent) ?? new List<Tarea>();
+                
+                // Asignar IDs si no los tienen
+                for (int i = 0; i < tareas.Count; i++)
+                {
+                    if (tareas[i].Id == 0)
+                    {
+                        tareas[i].Id = i + 1;
+                    }
+                }
+
+                // Buscar y actualizar la tarea
+                var tarea = tareas.FirstOrDefault(t => t.Id == id);
+                if (tarea != null)
+                {
+                    tarea.estado = nuevoEstado;
+                    
+                    // Guardar cambios
+                    var nuevoJson = JsonSerializer.Serialize(tareas, new JsonSerializerOptions 
+                    { 
+                        WriteIndented = true,
+                        Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+                    });
+                    
+                    System.IO.File.WriteAllText(jsonFilePath, nuevoJson);
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private int GenerarNuevoId()
+        {
+            try
+            {
+                string jsonFilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "tareas.json");
+                var jsonContent = System.IO.File.ReadAllText(jsonFilePath);
+                var tareas = JsonSerializer.Deserialize<List<Tarea>>(jsonContent) ?? new List<Tarea>();
+                
+                return tareas.Count > 0 ? tareas.Max(t => t.Id) + 1 : 1;
+            }
+            catch
+            {
+                return 1;
+            }
+        }
+    }
+}

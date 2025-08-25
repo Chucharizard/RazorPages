@@ -1,0 +1,210 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Lista de Tareas";
+}
+
+<div class="container">
+    <h2><i class="fas fa-clipboard-list"></i> Lista de Tareas</h2>
+    
+    <!-- Botón Nueva Tarea -->
+    <div class="boton-nueva-tarea">
+        @if (!Model.MostrarFormulario)
+        {
+            <a href="?mostrarForm=true&pagina=@Model.PaginaActual&estado=@Model.EstadoFiltro&tamanoPagina=@Model.TamanoPagina" 
+               class="btn-nueva-tarea">
+                <i class="fas fa-plus"></i> Nueva Tarea
+            </a>
+        }
+        else
+        {
+            <a href="?pagina=@Model.PaginaActual&estado=@Model.EstadoFiltro&tamanoPagina=@Model.TamanoPagina" 
+               class="btn-cancelar">
+                <i class="fas fa-times"></i> Cancelar
+            </a>
+        }
+    </div>
+
+    <!-- Form pa la tarea-->
+    @if (Model.MostrarFormulario)
+    {
+        <div class="formulario-nueva-tarea">
+            <h3><i class="fas fa-plus-circle"></i> Crear Nueva Tarea</h3>
+            
+            <form method="post">
+                <input type="hidden" name="pagina" value="@Model.PaginaActual" />
+                <input type="hidden" name="estado" value="@Model.EstadoFiltro" />
+                <input type="hidden" name="tamanoPagina" value="@Model.TamanoPagina" />
+                
+                <div class="campo">
+                    <label for="NuevoNombre">Nombre de la tarea *</label>
+                    <input type="text" id="NuevoNombre" name="NuevoNombre" 
+                           value="@Model.NuevoNombre" 
+                           placeholder="Ej: Completar proyecto de matemáticas"
+                           maxlength="100" required />
+                </div>
+                
+                <div class="campo">
+                    <label for="NuevaFecha">Fecha de vencimiento *</label>
+                    <input type="date" id="NuevaFecha" name="NuevaFecha" 
+                           value="@Model.NuevaFecha" required />
+                </div>
+                
+                <div class="botones-formulario">
+                    <button type="submit" class="btn-guardar">
+                        <i class="fas fa-save"></i> Guardar Tarea
+                    </button>
+                    <a href="?pagina=@Model.PaginaActual&estado=@Model.EstadoFiltro&tamanoPagina=@Model.TamanoPagina" 
+                       class="btn-cancelar-form">
+                        <i class="fas fa-times"></i> Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+    }
+
+    <!-- Mens pal resutl -->
+    @if (!string.IsNullOrEmpty(Model.Mensaje))
+    {
+        <div class="mensaje @(Model.Mensaje.Contains("exitosamente") ? "mensaje-exito" : "mensaje-error")">
+            <i class="fas @(Model.Mensaje.Contains("exitosamente") ? "fa-check-circle" : "fa-exclamation-triangle")"></i>
+            @Model.Mensaje
+        </div>
+    }
+
+    <!-- Filtros -->
+    <div class="controles">
+
+        <div class="filtros">
+            <label>Filtrar por estado:</label>
+            <a href="?pagina=1&tamanoPagina=@Model.TamanoPagina" 
+               class="btn-filtro @(string.IsNullOrEmpty(Model.EstadoFiltro) ? "activo" : "")">
+               Pendientes + En curso
+            </a>
+            <a href="?pagina=1&estado=Pendiente&tamanoPagina=@Model.TamanoPagina" 
+               class="btn-filtro @(Model.EstadoFiltro == "Pendiente" ? "activo" : "")">
+               Solo Pendientes
+            </a>
+            <a href="?pagina=1&estado=En curso&tamanoPagina=@Model.TamanoPagina" 
+               class="btn-filtro @(Model.EstadoFiltro == "En curso" ? "activo" : "")">
+               Solo En curso
+            </a>
+            <a href="?pagina=1&estado=Finalizado&tamanoPagina=@Model.TamanoPagina" 
+               class="btn-filtro @(Model.EstadoFiltro == "Finalizado" ? "activo" : "")">
+               Finalizadas
+            </a>
+        </div>
+
+        <div class="tamaño-pagina">
+            <label>Tareas por página:</label>
+            <input type="number" value="@Model.TamanoPagina" min="1" max="50" 
+                   onchange="cambiarTamañoPagina(this.value)" class="input-tamaño">
+            <button onclick="cambiarTamañoPagina(document.querySelector('.input-tamaño').value)" 
+                    class="btn-aplicar">Aplicar</button>
+        </div>
+    </div>
+
+    <table class="tabla-tareas">
+        <thead>
+            <tr>
+                <th>Tarea</th>
+                <th>Fecha Vencimiento</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Tareas.Any())
+            {
+                @foreach (var tarea in Model.Tareas)
+                {
+                    <tr>
+                        <td>@tarea.nombreTarea</td>
+                        <td>@tarea.fechaVencimiento</td>
+                        <td>
+                            @if (tarea.estado == "Pendiente")
+                            {
+                                <span class="estado pendiente">🕐 Pendiente</span>
+                            }
+                            else if (tarea.estado == "Finalizado")
+                            {
+                                <span class="estado finalizado">✅ Finalizado</span>
+                            }
+                            else if (tarea.estado == "En curso")
+                            {
+                                <span class="estado en-curso">⏳ En curso</span>
+                            }
+                            else if (tarea.estado == "Cancelado")
+                            {
+                                <span class="estado cancelado">❌ Cancelado</span>
+                            }
+                        </td>
+                        <td>
+                            <button class="btn-accion completar">✓</button>
+                            <button class="btn-accion cancelar">✗</button>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4" class="no-data">No hay tareas para mostrar</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @if (Model.TotalPaginas > 1)
+    {
+        <div class="paginacion">
+            @if (Model.PaginaActual > 1)
+            {
+                <a href="?pagina=@(Model.PaginaActual - 1)&estado=@Model.EstadoFiltro&tamanoPagina=@Model.TamanoPagina" 
+                   class="btn-pagina">← Anterior</a>
+            }
+
+            @for (int i = 1; i <= Model.TotalPaginas; i++)
+            {
+                @if (i == Model.PaginaActual)
+                {
+                    <span class="btn-pagina activa">@i</span>
+                }
+                else
+                {
+                    <a href="?pagina=@i&estado=@Model.EstadoFiltro&tamanoPagina=@Model.TamanoPagina" 
+                       class="btn-pagina">@i</a>
+                }
+            }
+
+            @if (Model.PaginaActual < Model.TotalPaginas)
+            {
+                <a href="?pagina=@(Model.PaginaActual + 1)&estado=@Model.EstadoFiltro&tamanoPagina=@Model.TamanoPagina" 
+                   class="btn-pagina">Siguiente →</a>
+            }
+        </div>
+    }
+
+    <div class="info-paginacion">
+        <p>
+            Página @Model.PaginaActual de @Model.TotalPaginas 
+            (@Model.Tareas.Count tareas de @Model.TamanoPagina por página)
+        </p>
+        @if (!string.IsNullOrEmpty(Model.EstadoFiltro))
+        {
+            <p>Filtrando por: <strong>@Model.EstadoFiltro</strong></p>
+        }
+        else
+        {
+            <p>Mostrando: <strong>Pendientes y En curso</strong></p>
+        }
+    </div>
+</div>
+
+<script>
+function cambiarTamañoPagina(valor) {
+    const estado = '@Model.EstadoFiltro';
+    const mostrarForm = '@Model.MostrarFormulario'.toLowerCase() === 'true';
+    window.location.href = `?pagina=1&estado=${estado}&tamanoPagina=${valor}${mostrarForm ? '&mostrarForm=true' : ''}`;
+}
+</script>

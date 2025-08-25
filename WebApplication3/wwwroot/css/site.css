@@ -1,0 +1,503 @@
+    :root {
+      --azul-oscuro: #1a1b3a;
+      --azul-medio: #2d3561;
+      --azul-claro: #4a5568;
+      --azul-accent: #3182ce;
+      --gris-fondo: #f8f9fa;
+      --blanco: #ffffff;
+      --texto-oscuro: #2d3748;
+      --texto-claro: #ffffff;
+      --verde: #28a745;
+      --rojo: #dc3545;
+      --gris: #6c757d;
+      --amarillo: #ffc107;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--gris-fondo);
+      color: var(--texto-oscuro);
+      line-height: 1.5;
+    }
+
+    .header {
+      background-color: var(--azul-oscuro);
+      color: var(--texto-claro);
+      padding: 15px 30px;
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contenedor {
+      display: flex;
+      min-height: calc(100vh - 60px);
+    }
+
+    .contenedor1 {
+      width: 250px;
+      background-color: var(--azul-medio);
+      padding: 20px 0;
+    }
+
+    .contenedor1 ul {
+      list-style: none;
+    }
+
+    .contenedor1 li {
+      margin-bottom: 5px;
+    }
+
+    .link {
+      color: var(--texto-claro);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      transition: background-color 0.3s;
+    }
+
+    .link:hover {
+      background-color: var(--azul-claro);
+      text-decoration: none;
+      color: var(--texto-claro);
+    }
+
+    .main-content {
+      flex: 1;
+      background-color: var(--gris-fondo);
+    }
+
+    .content {
+      padding: 30px;
+    }
+
+    /* Estilos para la página de tareas */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .container h2 {
+      color: var(--azul-oscuro);
+      margin-bottom: 25px;
+      font-size: 1.8rem;
+    }
+
+    /* Botón Nueva Tarea */
+    .boton-nueva-tarea {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .btn-nueva-tarea {
+      background-color: var(--verde);
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      display: inline-block;
+      transition: background-color 0.3s;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .btn-nueva-tarea:hover {
+      background-color: #218838;
+      text-decoration: none;
+      color: white;
+    }
+
+    .btn-cancelar {
+      background-color: var(--gris);
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+
+    .btn-cancelar:hover {
+      background-color: #5a6268;
+      text-decoration: none;
+      color: white;
+    }
+
+    /* Formulario Nueva Tarea */
+    .formulario-nueva-tarea {
+      background-color: var(--blanco);
+      padding: 25px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-left: 4px solid var(--verde);
+    }
+
+    .formulario-nueva-tarea h3 {
+      color: var(--azul-oscuro);
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+    }
+
+    .campo {
+      margin-bottom: 15px;
+    }
+
+    .campo label {
+      display: block;
+      font-weight: bold;
+      color: var(--azul-oscuro);
+      margin-bottom: 5px;
+    }
+
+    .campo input[type="text"],
+    .campo input[type="date"] {
+      width: 100%;
+      padding: 10px 12px;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+
+    .campo input[type="text"]:focus,
+    .campo input[type="date"]:focus {
+      outline: none;
+      border-color: var(--azul-accent);
+      box-shadow: 0 0 0 2px rgba(49, 130, 206, 0.1);
+    }
+
+    .botones-formulario {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .btn-guardar {
+      background-color: var(--verde);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn-guardar:hover {
+      background-color: #218838;
+    }
+
+    .btn-cancelar-form {
+      background-color: var(--gris);
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .btn-cancelar-form:hover {
+      background-color: #5a6268;
+      text-decoration: none;
+      color: white;
+    }
+
+    /* Mensajes */
+    .mensaje {
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mensaje-exito {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .mensaje-error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+
+    /* Controles (filtros + tamaño página) */
+    .controles {
+      background-color: var(--blanco);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .filtros {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .filtros label {
+      font-weight: bold;
+      color: var(--azul-oscuro);
+    }
+
+    .btn-filtro {
+      padding: 6px 12px;
+      background-color: #f8f9fa;
+      border: 1px solid #ddd;
+      text-decoration: none;
+      color: var(--azul-oscuro);
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+
+    .btn-filtro:hover {
+      background-color: var(--azul-accent);
+      color: white;
+      text-decoration: none;
+    }
+
+    .btn-filtro.activo {
+      background-color: var(--azul-oscuro);
+      color: white;
+      border-color: var(--azul-oscuro);
+    }
+
+    .tamaño-pagina {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tamaño-pagina label {
+      font-weight: bold;
+      color: var(--azul-oscuro);
+    }
+
+    .input-tamaño {
+      width: 60px;
+      padding: 5px 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .btn-aplicar {
+      padding: 5px 12px;
+      background-color: var(--verde);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .btn-aplicar:hover {
+      background-color: #218838;
+    }
+
+    /* Tabla de tareas */
+    .tabla-tareas {
+      width: 100%;
+      background-color: var(--blanco);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    .tabla-tareas th,
+    .tabla-tareas td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #dee2e6;
+    }
+
+    .tabla-tareas th {
+      background-color: var(--azul-oscuro);
+      color: var(--texto-claro);
+      font-weight: bold;
+    }
+
+    .tabla-tareas tr:hover {
+      background-color: #f8f9fa;
+    }
+
+    .estado {
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+
+    .estado.pendiente {
+      background-color: #fff3cd;
+      color: #856404;
+    }
+
+    .estado.finalizado {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    .estado.en-curso {
+      background-color: #d1ecf1;
+      color: #0c5460;
+    }
+
+    .btn-accion {
+      border: none;
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 0 2px;
+      font-size: 0.9rem;
+    }
+
+    .btn-accion.completar {
+      background-color: var(--verde);
+      color: white;
+    }
+
+    .btn-accion.cancelar {
+      background-color: var(--rojo);
+      color: white;
+    }
+
+    .btn-accion:hover {
+      opacity: 0.8;
+    }
+
+    .no-data {
+      text-align: center;
+      color: var(--gris);
+      font-style: italic;
+      padding: 30px;
+    }
+
+    /* Paginación */
+    .paginacion {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      margin-bottom: 15px;
+    }
+
+    .btn-pagina {
+      padding: 8px 12px;
+      background-color: var(--blanco);
+      border: 1px solid #ddd;
+      text-decoration: none;
+      color: var(--azul-oscuro);
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+
+    .btn-pagina:hover {
+      background-color: var(--azul-accent);
+      color: white;
+      text-decoration: none;
+    }
+
+    .btn-pagina.activa {
+      background-color: var(--azul-oscuro);
+      color: white;
+      border-color: var(--azul-oscuro);
+    }
+
+    .info-paginacion {
+      text-align: center;
+      color: var(--gris);
+      font-size: 0.9rem;
+    }
+
+    .info-paginacion p {
+      margin: 5px 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .contenedor {
+        flex-direction: column;
+      }
+  
+      .contenedor1 {
+        width: 100%;
+      }
+  
+      .container {
+        padding: 10px;
+      }
+
+      .formulario-nueva-tarea {
+        padding: 15px;
+      }
+
+      .botones-formulario {
+        flex-direction: column;
+      }
+
+      .controles {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+      }
+
+      .filtros {
+        justify-content: center;
+      }
+
+      .tamaño-pagina {
+        justify-content: center;
+      }
+  
+      .tabla-tareas th,
+      .tabla-tareas td {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+      }
+  
+      .paginacion {
+        flex-wrap: wrap;
+        gap: 3px;
+      }
+
+      .btn-pagina {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+      }
+
+      .btn-filtro {
+        font-size: 0.8rem;
+        padding: 5px 8px;
+      }
+    }
+

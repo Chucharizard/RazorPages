@@ -1,0 +1,31 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using WebApplication3.Models;
+using WebApplication3.Services;
+
+namespace WebApplication3.Pages
+{
+    public class IndexModel : PageModel
+    {
+        private readonly TareaService _tareaService;
+
+        public IndexModel(TareaService tareaService)
+        {
+            _tareaService = tareaService;
+        }
+
+        public List<Tarea> Tareas { get; set; } = new List<Tarea>();
+        public int PaginaActual { get; set; } = 1;
+        public int TotalPaginas { get; set; }
+        public int TareasPorPagina { get; set; } = 5;
+
+        public void OnGet(int pagina = 1, int itemsPorPagina = 5)
+        {
+            PaginaActual = pagina;
+            TareasPorPagina = itemsPorPagina;
+
+            Tareas = _tareaService.GetTareasPaginated(PaginaActual, TareasPorPagina, out int totalPaginas);
+            TotalPaginas = totalPaginas;
+        }
+    }
+}

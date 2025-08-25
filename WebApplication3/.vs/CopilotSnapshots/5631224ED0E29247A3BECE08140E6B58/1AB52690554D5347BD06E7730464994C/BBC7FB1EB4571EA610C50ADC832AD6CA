@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebApplication3</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebApplication3.styles.css" asp-append-version="true" />
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+    <div class="header">
+        <span class="logo">
+            <i class="fas fa-tasks"></i>
+            BLOCK DE TAREAS
+        </span>
+    </div>
+    <div class="contenedor">
+        <nav class="contenedor1">
+            <ul>
+                <li>
+                    <a class="link" asp-page="/Index">
+                        <i class="fas fa-home"></i>
+                        <span>Inicio</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="link" asp-page="/Index">
+                        <i class="fas fa-list"></i>
+                        <span>Lista de tareas</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="link" asp-page="/Privacy">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Tareas finalizadas</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="link" asp-page="/Privacy">
+                        <i class="fas fa-times-circle"></i>
+                        <span>Tareas canceladas</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="main-content">
+            <div class="tabla-tareas">
+                <div class="table-header">
+                    <h2><i class="fas fa-clipboard-list"></i> Gestión de Tareas</h2>
+                    <button class="btn-add-task">
+                        <i class="fas fa-plus"></i>
+                        Nueva Tarea
+                    </button>
+                </div>
+                <table class="tabla">
+                    <thead>
+                        <tr>
+                            <th><i class="fas fa-tasks"></i> Tarea</th>
+                            <th><i class="fas fa-calendar"></i> Vencimiento</th>
+                            <th><i class="fas fa-info-circle"></i> Estado</th>
+                            <th><i class="fas fa-cogs"></i> Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="task-info">
+                                    <strong>Comprar materiales</strong>
+                                    <small>Materiales para el proyecto</small>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="date-badge">20/08/2025</span>
+                            </td>
+                            <td>
+                                <span class="status-badge status-pending">
+                                    <i class="fas fa-clock"></i>
+                                    Pendiente
+                                </span>
+                            </td>
+                            <td>
+                                <button class="btn-verde" title="Completar">
+                                    <i class="fas fa-check"></i>
+                                </button>
+                                <button class="btn-rojo" title="Cancelar">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="task-info">
+                                    <strong>Enviar informe</strong>
+                                    <small>Informe mensual</small>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="date-badge">18/08/2025</span>
+                            </td>
+                            <td>
+                                <span class="status-badge status-completed">
+                                    <i class="fas fa-check-circle"></i>
+                                    Finalizada
+                                </span>
+                            </td>
+                            <td>
+                                <button class="btn-gris" disabled title="Completada">
+                                    <i class="fas fa-check"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <main class="content" role="main">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html></html>

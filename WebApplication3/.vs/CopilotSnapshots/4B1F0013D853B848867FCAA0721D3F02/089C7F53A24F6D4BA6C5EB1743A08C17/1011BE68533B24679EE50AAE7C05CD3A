@@ -1,0 +1,57 @@
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using WebApplication3.Models;
+using System.Text.Json;
+
+namespace WebApplication3.Pages
+{
+    public class IndexModel : PageModel
+    {
+        // Propiedades básicas
+        public List<Tarea> Tareas { get; set; } = new List<Tarea>();
+        public int PaginaActual { get; set; } = 1;
+        public int TotalPaginas { get; set; }
+        public int TamanoPagina { get; set; } = 5;
+        public string EstadoFiltro { get; set; } = "";
+
+        public void OnGet(int pagina = 1, string estado = "", int tamanoPagina = 5)
+        {
+            // Leer el archivo JSON
+            string jsonFilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "tareas.json");
+            var jsonContent = File.ReadAllText(jsonFilePath);
+            var todasLasTareas = JsonSerializer.Deserialize<List<Tarea>>(jsonContent) ?? new List<Tarea>();
+
+            // Filtrar por estado
+            EstadoFiltro = estado;
+            if (!string.IsNullOrWhiteSpace(estado))
+            {
+                todasLasTareas = todasLasTareas.Where(t => t.estado == estado).ToList();
+            }
+            else
+            {
+                // Por defecto mostrar solo Pendientes y En curso
+                todasLasTareas = todasLasTareas
+                    .Where(t => t.estado == "Pendiente" || t.estado == "En curso")
+                    .ToList();
+            }
+
+            // Validaciones básicas
+            TamanoPagina = tamanoPagina < 1 ? 5 : tamanoPagina;
+            PaginaActual = pagina < 1 ? 1 : pagina;
+
+            // Calcular paginación
+            TotalPaginas = (int)Math.Ceiling(todasLasTareas.Count / (double)TamanoPagina);
+            
+            // Si excede páginas, ir a la última página
+            if (PaginaActual > TotalPaginas && TotalPaginas > 0)
+            {
+                PaginaActual = TotalPaginas;
+            }
+
+            // Obtener tareas de la página actual
+            Tareas = todasLasTareas
+                .Skip((PaginaActual - 1) * TamanoPagina)
+                .Take(TamanoPagina)
+                .ToList();
+        }
+    }
+}

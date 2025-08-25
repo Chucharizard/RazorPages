@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebApplication3</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebApplication3.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="header">
+        <span class="logo">BLOCK DE TAREAS</span>
+    </div>
+    <div class="contenedor">
+        <nav class="contenedor1">
+            <ul>
+                <li>
+                    <a class="link" asp-page="/Home">
+                        inicio
+                    </a>
+                </li>
+                <li>
+                    <a class="link" asp-page="/Home">
+                        lista de tareas
+                    </a>
+                </li>
+                <li>
+                    <a class="link" asp-page="/Privacy">
+                        lista de tareas finalizadas
+                    </a>
+                </li>
+                <li>
+                    <a class="link" asp-page="/Privacy">
+                        lista de tareas canceladas
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="tabla-tareas">
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th>Tarea</th>
+                        <th>Vencimiento</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Comprar materiales</td>
+                        <td>20/08/2025</td>
+                        <td>Pendiente</td>
+                        <td>
+                            <button class="btn-verde">✔</button>
+                            <button class="btn-rojo">✖</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Enviar informe</td>
+                        <td>18/08/2025</td>
+                        <td>Finalizada</td>
+                        <td>
+                            <button class="btn-gris" disabled>✓</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <main class="content" role="main">
+            @RenderBody()
+            
+        </main>
+        
+    </div>
+    
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
